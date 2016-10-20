@@ -1,11 +1,11 @@
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose');
+var express = require('express')
+var router = express.Router()
+var mongoose = require('mongoose')
 var username = process.env.MONGODB_USER
 var password = process.env.MONGODB_PASSWORD
 
 
-mongoose.connect('mongodb://' + username + ':' + password + '@ds061506.mlab.com:61506/vaultdragon')
+mongoose.connect('mongodb://' + username + ':' + password + '@ds063186.mlab.com:63186/heroku_kr7vh701')
 
 var Score = mongoose.model('keyvaluepair', {
   key: String,
@@ -13,14 +13,12 @@ var Score = mongoose.model('keyvaluepair', {
             value : String,
             timestamp : String
           }]
-
 })
 
-// 1. Receive key value object and store
+// 1. Receive key value JSON and store in mlabs
 router.post('/', function(req, res, next) {
-  // console.log(req)
   var reqBody = req.body
-  var reqVal;
+  var reqVal
 
   Object.keys(reqBody).map(function(k) {
     reqVal = reqBody[k]
