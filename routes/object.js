@@ -14,6 +14,9 @@ var Score = mongoose.model('keyvaluepair', {
             timestamp : String
           }]
 })
+router.get('/', function(req, res, next) {
+  res.render('object')
+}
 
 // 1. Receive key value JSON and store in mlabs
 router.post('/', function(req, res, next) {
