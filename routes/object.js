@@ -50,6 +50,7 @@ router.post('/', function(req, res, next) {
               }
               else {
                  console.log("Entry saved");
+                 res.send("entry saved")
                }
           })
         })
@@ -68,6 +69,7 @@ router.post('/', function(req, res, next) {
             console.log(allin)
           })
         })
+        res.send("key updated!")
 
       }
     })
